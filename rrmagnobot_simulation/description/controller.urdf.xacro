@@ -23,6 +23,14 @@
       </joint>
   </ros2_control>
 
+
+  <gazebo>
+    <plugin name="rrmagnobot_plugin" filename="librrmagnobot_gazebo_force.so">
+    </plugin>
+  </gazebo>
+
+
+
   <gazebo>
       <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
           <parameters>$(find rrmagnobot_simulation)/config/controllers.yaml</parameters>
