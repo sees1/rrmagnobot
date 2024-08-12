@@ -1,22 +1,34 @@
 #ifndef RRMAGNOBOT_GAZEBO_FORCE_PLUGIN_HPP_
 #define RRMAGNOBOT_GAZEBO_FORCE_PLUGIN_HPP_
 
-#include <gazebo/gazebo.hh>
-#include <gazebo/common/CommonTypes.hh>
-#include <gazebo/physics/physics.hh>
+#include <gazebo/common/Time.hh>
+#include <gazebo/physics/Joint.hh>
+#include <gazebo/physics/Link.hh>
+#include <gazebo/physics/Model.hh>
+#include <gazebo/physics/World.hh>
+#include <gazebo/common/Plugin.hh>
+#include <sdf/sdf.hh>
+#include <unistd.h>
 
-namespace rrmagnobot_gazebo_force
+#include "rclcpp/rclcpp.hpp"
+
+
+namespace gazebo_plugins
 {
     class RRMagnobotGazeboForcePlugin : public gazebo::ModelPlugin
     {
     public:
-        RRMagnobotGazeboForcePlugin() = default;
+        RRMagnobotGazeboForcePlugin();
 
         ~RRMagnobotGazeboForcePlugin() = default;
+
+    protected:
 
         void Load(gazebo::physics::ModelPtr _model, sdf::ElementPtr _sdf) override;
 
         void OnUpdate();
+
+        void Reset() override;
 
     private:
         gazebo::physics::ModelPtr model;
