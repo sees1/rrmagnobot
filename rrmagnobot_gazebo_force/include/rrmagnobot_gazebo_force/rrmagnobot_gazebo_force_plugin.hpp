@@ -13,7 +13,7 @@
 #include "rclcpp/rclcpp.hpp"
 
 
-namespace gazebo_plugins
+namespace rrmagnobot_gazebo_force
 {
     class RRMagnobotGazeboForcePlugin : public gazebo::ModelPlugin
     {
@@ -27,8 +27,6 @@ namespace gazebo_plugins
         void Load(gazebo::physics::ModelPtr _model, sdf::ElementPtr _sdf) override;
 
         void OnUpdate();
-
-        void Reset() override;
 
     private:
         gazebo::physics::ModelPtr model;

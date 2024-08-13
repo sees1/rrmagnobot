@@ -1,23 +1,16 @@
 #include <rrmagnobot_gazebo_force/rrmagnobot_gazebo_force_plugin.hpp>
 
 
-namespace gazebo_plugins
+namespace rrmagnobot_gazebo_force
 {
 
-  RRMagnobotGazeboForcePlugin::RRMagnobotGazeboForcePlugin()
-  {
-    int i = 0;
-    while(i == 0)
-    {
-      sleep(1);
-    }
-  }
+  RRMagnobotGazeboForcePlugin::RRMagnobotGazeboForcePlugin(){}
 
   void RRMagnobotGazeboForcePlugin::Load(gazebo::physics::ModelPtr _model, sdf::ElementPtr _sdf)
   {
     RCLCPP_INFO_STREAM(
     rclcpp::get_logger("rrmagnobot_plugin"),
-    "Loading rrmagnobot_plugin plugin");
+    "Loading rrmagnobot_gazebo_force plugin");
 
 
     if (_model->GetName() == "rrmagnobot")
@@ -33,5 +26,7 @@ namespace gazebo_plugins
     ignition::math::Vector3d force(0, 0, -100);
     this->model->GetLink("body_link")->AddRelativeForce(force);
   }
-GZ_REGISTER_MODEL_PLUGIN(RRMagnobotGazeboForcePlugin)
+
+  GZ_REGISTER_MODEL_PLUGIN(RRMagnobotGazeboForcePlugin)
+
 }
